@@ -85,11 +85,6 @@ const SignIn = () => {
                       onChange={(e) => setPassword(e.target.value)}
                     />
                   </Form.Group>
-                  <div className="d-flex align-items-center justify-content-between">
-                    <Link to="/auth/recoverpw" className="font-italic">
-                      Esqueceu a senha?
-                    </Link>
-                  </div>
                   <Button
                     variant="primary"
                     type="submit"
@@ -99,6 +94,10 @@ const SignIn = () => {
                     {showSpinner ? <div className="spinner-border spinner-border-sm" role="status"></div> : <div className='fw-semibold'>Entrar</div>}
                   </Button>
                 </Form>
+                <p className="mt-3">
+                  Não tem uma conta?{" "}
+                  <Link to="/register" className="fw-semibold">Cadastre-se</Link>
+                </p>
               </div>
             </Col>
           </Row>

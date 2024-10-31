@@ -213,9 +213,7 @@ const Index = () => {
                                     {filteredUsers.map((user, index) => (
                                         <tr key={user.id} className={user.active ? '' : 'table-danger'}>
                                             <td className='td-text-center fontCustom'>{user.id}</td>
-                                            <Button variant="link" onClick={() => openChat(user.id)}>
-                                                {user.name}
-                                            </Button>
+                                            <td className='td-text-center fontCustom'>{user.name}</td>
                                             <td className='td-text-center fontCustom'>{user.email}</td>
                                             <td id='tdButtonAction'>
                                                 <Button className='editButton btnTableMoBile me-2' onClick={() => showEditUserPage(user.id)}><BsPencilSquare /> Editar</Button>

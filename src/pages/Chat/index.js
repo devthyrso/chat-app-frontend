@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect, useState, useRef } from 'react';
 import io from 'socket.io-client';
 import api from '../../services/api';
 import Button from 'react-bootstrap/Button';
@@ -7,14 +7,35 @@ import './Chat.css';
 import NavBar from '../../components/Navbar/navbar';
 import Cookies from 'js-cookie';
 
-const socket = io('http://localhost:7000');
-
 const Chat = () => {
     const loged_user = Cookies.get('userId');
     const [users, setUsers] = useState([]);
     const [messages, setMessages] = useState([]);
     const [newMessage, setNewMessage] = useState('');
     const [selectedFriend, setSelectedFriend] = useState(null);
+    const socket = useRef(null);
+    const messagesEndRef = useRef(null);
+
+    const scrollToBottom = () => {
+        messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
+    };
+
+    useEffect(() => {
+        socket.current = io('http://localhost:7000');
+        socket.current.on('connect', () => {
+            socket.current.emit('subscribe', `app_chat_user_${loged_user}`);
+        });
+
+        socket.current.on('newMessage', (messageData) => {
+            if (messageData.friend_id === selectedFriend?.id) {
+                setMessages((prevMessages) => [...prevMessages, messageData.message]);
+            }
+        });
+
+        return () => {
+            socket.current.disconnect();
+        };
+    }, [loged_user, selectedFriend]);
 
     useEffect(() => {
         const fetchUsers = async () => {
@@ -27,22 +48,6 @@ const Chat = () => {
         };
         fetchUsers();
     }, []);
-
-    useEffect(() => {
-        if (loged_user) {
-            socket.emit('subscribe', `app_chat_user_${loged_user}`);
-
-            socket.on('newMessage', (messageData) => {
-                if (messageData.friend_id === selectedFriend?.id) {
-                    setMessages((prevMessages) => [...prevMessages, messageData.message]);
-                }
-            });
-        }
-
-        return () => {
-            socket.off('newMessage');
-        };
-    }, [loged_user, selectedFriend]);
 
     useEffect(() => {
         if (selectedFriend) {
@@ -58,6 +63,10 @@ const Chat = () => {
         }
     }, [selectedFriend]);
 
+    useEffect(() => {
+        scrollToBottom();
+    }, [messages]);
+
     const sendMessage = async () => {
         if (newMessage.trim() === '') return;
 
@@ -71,6 +80,12 @@ const Chat = () => {
 
             setMessages((prevMessages) => [...prevMessages, response.data.message]);
             setNewMessage('');
+
+            socket.current.emit('sendMessage', {
+                receiver_id: selectedFriend.id,
+                friend_id: loged_user,
+                message: response.data.message
+            });
         } catch (error) {
             console.error('Erro ao enviar a mensagem:', error);
         }
@@ -97,7 +112,7 @@ const Chat = () => {
                     <div className="chat-container">
                         <h2>Conversa com {selectedFriend.name}</h2>
 
-                        <div className="chat-popup-body p-3 border-bottom" style={{ overflowY: 'auto', position: 'relative' }}>
+                        <div className="chat-popup-body p-3 border-bottom" style={{ overflowY: 'auto', maxHeight: '400px' }}>
                             <ul className="list-inline p-0 mb-0 chat">
                                 {messages?.map((msg, index) => {
                                     if (msg.sender_id == loged_user) {
@@ -122,6 +137,7 @@ const Chat = () => {
                                         );
                                     }
                                 })}
+                                <div ref={messagesEndRef} />
                             </ul>
                         </div>
 
@@ -131,7 +147,12 @@ const Chat = () => {
                                 placeholder="Digite sua mensagem..."
                                 value={newMessage}
                                 onChange={(e) => setNewMessage(e.target.value)}
-                                onKeyDown={(e) => e.key === 'Enter' && sendMessage()}
+                                onKeyDown={(e) => {
+                                    if (e.key === 'Enter') {
+                                        e.preventDefault();
+                                        sendMessage();
+                                    }
+                                }}
                             />
                             <Button variant="primary" onClick={sendMessage}>
                                 Enviar

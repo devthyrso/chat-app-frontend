@@ -4,7 +4,7 @@ import { useNavigate, Link } from 'react-router-dom'
 import { Offcanvas, Navbar, Container } from 'react-bootstrap'
 import { TiThMenuOutline } from 'react-icons/ti'
 import Cookies from 'js-cookie'
-import { FaUsers } from 'react-icons/fa'
+import { FaUsers, FaComments } from 'react-icons/fa'
 import UserAvatarWithInitials from '../../components/UserAvatarWithInitials/UserAvatarWithInitials'
 import Dropdown from 'react-bootstrap/Dropdown'
 import DarkMode from '../DarkMode/DarkMode'
@@ -82,15 +82,16 @@ export default function Sidebar() {
                 <hr className='hrLineDivider'></hr>
                 <Offcanvas.Body>
                     <div>
-                        <Link to='/dashboard' className='classLink'>
-                            <div className='divLink'>
-                                <h5 className='divText'><MdOutlineBarChart className='classIcon' />Dashboard</h5>
-                            </div>
-                        </Link>
 
                         <Link to='/users' className='classLink'>
                             <div className='divLink'>
                                 <h5 className='divText'><FaUsers className='classIcon' />Usuários</h5>
+                            </div>
+                        </Link>
+
+                        <Link to='/chat' className='classLink'>
+                            <div className='divLink'>
+                                <h5 className='divText'><FaComments  className='classIcon' />Chat</h5>
                             </div>
                         </Link>
 

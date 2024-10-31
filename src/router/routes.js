@@ -19,7 +19,7 @@ export default function AppRoutes() {
       <Route path='/user/new' element={<CreateUser />} />
       <Route path='/user/edit/:id' element={<EditUser />} />
 
-      <Route path="/chat/:userId" element={<Chat />} />
+      <Route path="/chat" element={<Chat />} />
     </Routes>
   )
 }

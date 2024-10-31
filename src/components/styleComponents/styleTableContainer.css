@@ -1,0 +1,404 @@
+#trList {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.table {
+  --bs-table-color-type: var(--bg-colorText); /*Cor do texto linha mais escura*/
+  --bs-table-bg-type: var(--bg-colorLine); /*Cor bg da linha mais escura*/
+  --bs-table-color-state: var(
+    --bg-colorText
+  ); /*Cor do texto de todas as linhas*/
+  --bs-table-bg-state: initial;
+  --bs-table-color: var(--bs-body-color);
+  --bs-table-bg: var(--bg-tableBackGround);
+  --bs-table-border-color: var(--bs-border-color);
+  --bs-table-accent-bg: transparent;
+  --bs-table-striped-color: var(
+    --bg-colorText
+  ); /*Cor de todo texto dentro a tabela*/
+  --bs-table-striped-bg: var(--bg-colorLineStriped); /*Cor bg do striped*/
+  --bs-table-active-color: var(--bs-body-color);
+  --bs-table-active-bg: rgba(0, 0, 0, 0.1);
+  --bs-table-hover-color: var(--bg-TextColorHover); /*Cor do texto hover*/
+  --bs-table-hover-bg: var(--bg-colorTableHover); /*Cor bg hover*/
+  width: 100%;
+  margin-bottom: 1rem;
+  vertical-align: middle;
+  border-color: var(--bg-BoderColorTable);
+}
+
+.table-danger {
+  --bs-table-bg: var(--bg-TableDanger-DarkMode);
+  --bs-table-striped-bg: var(--bg-TableDanger-DarkMode);
+  --bs-table-border-color: var(--bg-BoderColorTable);
+}
+
+.form-label,
+.form-check-label {
+  color: var(--bg-colorText);
+}
+
+.th-text-center,
+.td-text-center {
+  text-align: center;
+}
+
+.editButton,
+.deleteButton {
+  box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.402);
+}
+
+#tableList {
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5);
+}
+
+#thAction {
+  display: flex;
+  justify-content: center;
+}
+
+.fontCustom {
+  font-size: 17px;
+  font-family: "Lucida Sans Unicode", "Lucida Grande", "Lucida Sans", Arial,
+    sans-serif;
+}
+
+#tdButtonAction {
+  display: flex;
+  justify-content: center;
+}
+
+.editButton {
+  background-color: #007bff;
+  margin-right: 10px;
+  border: none;
+}
+
+.editButton:hover {
+  scale: 1.1;
+  transition: all 300ms ease-in-out;
+  background-color: #0056b3;
+}
+
+.deleteButton {
+  background-color: red;
+  border: none;
+}
+
+.deleteButton:hover {
+  scale: 1.1;
+  transition: all 300ms ease-in-out;
+  background-color: #c82333;
+}
+
+.shadowCustom {
+  box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.402);
+}
+
+.listGroupItemGrade {
+  cursor: pointer;
+}
+
+.listGroupItemGrade:hover {
+  scale: 1.01;
+  transition: all 300ms ease-in-out;
+  background-color: rgb(225, 225, 225);
+}
+
+.tdCustomThumbShow {
+  cursor: pointer;
+}
+
+.tdCustomThumbShow:hover {
+  scale: 1.05;
+  transition: transform 300ms, opacity 300ms;
+  border-radius: 3px;
+  border: none;
+}
+
+.btnMaterialTemplate {
+  background-color: #6c757d;
+  color: white;
+  border: none;
+  border-radius: 5px;
+}
+
+.btnMaterialTemplate:hover {
+  background-color: #4268769d;
+  transition-duration: 300ms;
+}
+
+.badgeCustomDataInicioFim {
+  color: var(--bg-colorText);
+}
+
+.badgeclass {
+  margin-left: 0.3rem;
+}
+
+.divShadowClass {
+  border-radius: 10px;
+  box-shadow: 0px 0px 6px rgba(0, 0, 0, 0.5);
+}
+
+.btnColortxt {
+  color: var(--bg-colorText);
+  font-size: large;
+  padding-top: 0.9rem;
+  padding-bottom: 0.9rem;
+  border: solid 1px var(--bg-BoderColorTable);
+  background: var(--bgroot-color);
+}
+
+.btnColortxt:hover {
+  color: var(--bg-colorText);
+  background: #21252900;
+  box-shadow: inset 6px 6px 12px #0d0f10, inset -6px -6px 12px #0d0f10;
+}
+
+.borderClass1 {
+  border-bottom: none;
+  border-right: none;
+}
+
+.borderClass2 {
+  border-bottom: none;
+  border-left: none;
+  border-right: none;
+}
+
+.borderClass3 {
+  border-bottom: none;
+  border-left: none;
+}
+
+.btnColorAprov {
+  margin-left: 10px;
+  margin-right: 10px;
+  border: none;
+  background-color: #008000;
+  box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.402);
+}
+
+.btnColorAprov:hover {
+  scale: 1.1;
+  transition: all 300ms ease-in-out;
+  background-color: #004d00;
+}
+
+.spanClassMaterial {
+  color: white;
+  padding: 0.1rem;
+  border-radius: 5px;
+  background-color: #403877e1;
+}
+
+.spanClassTemplate {
+  color: white;
+  padding: 0.1rem;
+  border-radius: 5px;
+  background-color: #f39d33da;
+}
+
+.colorIconMaterial {
+  font-size: x-large;
+  color: white;
+  border-radius: 5px;
+  padding: 0.1rem;
+  margin: 0.1rem;
+  margin-right: 0.3rem;
+  background-color: #403877b7;
+}
+
+.colorIconTemplate {
+  font-size: x-large;
+  color: white;
+  border-radius: 5px;
+  padding: 0.1rem;
+  margin: 0.1rem;
+  margin-right: 0.3rem;
+  background-color: #c7720b;
+}
+
+.colortxtClass:hover {
+  color: white;
+}
+
+.btnAtualizarPreview {
+  background-color: #4682b4;
+  border: none;
+  font-size: large;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  right: 5px;
+  width: 100%;
+  box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.402);
+}
+
+.btnAtualizarPreview:hover {
+  background-color: #4682b4;
+  scale: 1.1;
+  transition: all 300ms ease-in-out;
+  box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.402);
+}
+
+.GrUpdateClass {
+  transition: transform 0.5s ease;
+}
+
+.btnAtualizarPreview:hover .GrUpdateClass {
+  transform: rotate(180deg);
+}
+
+/*nao alterar esta classe*/
+.divMaquinasNovaPub {
+  border: solid 1px var(--bg-BoderColorTable);
+}
+
+.borderDown {
+  width: 100%;
+  border-bottom: solid 1px var(--bg-BoderColorTable);
+}
+
+.FaListCheckClass {
+  margin-right: 0.5rem;
+}
+
+.colGapClass {
+  display: flex;
+  row-gap: 1rem;
+  flex-direction: column;
+}
+
+.marginClassMaquina {
+  margin-left: 5px;
+}
+
+.btnGenClass {
+  border: none;
+  background-color: #007bff;
+  box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.402);
+}
+
+.btnGenClass:hover {
+  scale: 1.1;
+  transition: all 300ms ease-in-out;
+  background-color: #0056b3;
+}
+
+.btnAprovClass {
+  border: none;
+  background-color: #008000;
+  box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.402);
+}
+
+.btnAprovClass:hover {
+  scale: 1.1;
+  transition: all 300ms ease-in-out;
+  background-color: #004d00;
+}
+
+.colorFullCalendar, .fc-toolbar-title {
+  color: var(--bg-colorText);
+}
+
+.zIndexClass {
+  position: relative;
+  z-index: 4;
+  background-color: var(--bgroot-color);
+}
+
+.btnPreviewModalCalendar {
+  background-color: #6c757d;
+  color: white;
+  border-radius: 7px;
+  border: none;
+  margin-bottom: 0.5rem;
+}
+
+.btnPreviewModalCalendar:hover {
+  background-color: #7b848d;
+  transition: all 300ms ease-in-out;
+}
+
+.btnPreviewModalCalendar:active {
+  background-color: #5a6168;
+}
+
+.rotated-div {
+    max-width: 100%;
+    max-height: 100%;
+    aspect-ratio: 16 / 9; /* Mantém a proporção 16:9 */
+    transform-origin: center;
+}
+
+.rotated-div-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    /* align-items: center; */
+    justify-content: center;
+    /* overflow: hidden; */
+}
+
+.rotated-div img, 
+.rotated-div video, 
+.rotated-div iframe {
+    width: 100%;
+    height: 100%;
+    object-fit: contain; /* Ajusta o conteúdo para caber sem cortar */
+}
+
+.arrowDirectionDivModal {
+  cursor: pointer;
+  color: var(--bg-colorText);
+  font-size: x-large;
+}
+
+.arrowRotateLeft:hover {
+  transition: all 300ms ease-in-out;
+  rotate: 90deg;
+}
+
+.arrowRotateRigth:hover {
+  transition: all 300ms ease-in-out;
+  rotate: -90deg;
+}
+
+.divArrowRotate{
+  margin-left: 1.5rem;
+  border-radius: 7px;
+  border: solid 1px var(--bg-BoderColorTable);
+}
+
+.btn-close {
+  background-color: var(--bg-colorText);
+}
+
+.formControlComandoMaquinas {
+  cursor: pointer;
+}
+
+.formControlComandoMaquinas:hover {
+  white-space: nowrap;
+  letter-spacing: 1px;
+  scale: 1.001;
+  transition-duration: 300ms;
+}
+
+.limited-text-TablePUB {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  max-width: 150px;
+}
+
+.scrolling-text {
+    white-space: nowrap; /* Impede a quebra de linha */
+    overflow: hidden; /* Oculta o texto que ultrapassa a largura */
+    text-overflow: ellipsis; /* Adiciona "..." quando o texto é cortado */
+    display: inline-block;
+    max-width: 200px; /* Define a largura máxima do contêiner */
+}

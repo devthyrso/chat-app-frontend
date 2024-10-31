@@ -1,0 +1,15 @@
+.BsFillArrow {
+    border-radius: 1px;
+    color: #0D6EFD;
+    cursor: pointer;
+    font-size: 30px;
+}
+
+.BsFillArrow:hover {
+    scale: 1.2;
+    transition-duration: 300ms;
+    border-radius: 1px;
+    color: #0d6dfdc6;
+    cursor: pointer;
+    font-size: 30px;
+}

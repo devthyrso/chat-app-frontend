@@ -1,0 +1,99 @@
+.modal-content {
+    background-color: var(--bgroot-color);
+}
+
+#modalHeader {
+    display: flex;
+    align-items: flex-start;
+    border: none;
+}
+
+#divModalTitle {
+    width: 100%;
+}
+
+#modalTitle {
+    display: flex;
+    height: 50px;
+    margin-bottom: -10px;
+    margin-left: 30px;
+    justify-content: center;
+    align-items: center;
+}
+
+.modalComponent {
+    width: 400px;
+}
+
+#modalBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0;
+    color: var(--bg-colorText);
+}
+
+#modalChangeEnvironmentBody {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 0;
+}
+
+#modalFooter {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#yesButton, #noButton {
+    width: 80px;
+    box-shadow: 2px 3px 3px rgba(0, 0, 0, 0.402);
+}
+
+#yesButton, #saveButton  {
+    background-color: green;
+    margin-right: 5px;
+    border: none;
+}
+
+#yesButton:hover, #saveButton:hover {
+    scale: 1.1;
+    transition: all 300ms ease-in-out;
+    background-color: #126a12;
+}
+
+#noButton {
+    background-color: red;
+    margin-right: 5px;
+    border: none;
+}
+
+#noButton:hover {
+    scale: 1.1;
+    transition: all 300ms ease-in-out;
+    background-color: #C82333;
+}
+
+.modalHeaderFP {
+    color: var(--bg-colorText);
+}
+
+.filepond--credits{
+    display: none;
+}
+
+.cursorPointerClass {
+    cursor: pointer;
+}
+
+.saveBtnModalClass {
+    background-color: green;
+    border: none;
+}
+
+.saveBtnModalClass:hover {
+    scale: 1.1;
+    transition: all 300ms ease-in-out;
+    background-color: #126a12;
+}

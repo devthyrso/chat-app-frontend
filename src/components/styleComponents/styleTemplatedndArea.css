@@ -1,0 +1,106 @@
+.borderdndArea {
+  border: 1px dashed #00ffc8!important;
+}
+
+/* styles.css */
+.resize-drag.borderdndArea {
+  border: 2px solid red;
+  position: relative;
+}
+
+.resize-drag.borderdndArea .handle {
+  position: absolute;
+  background-color: rgb(255, 255, 255);
+  width: 8px;
+  height: 8px;
+}
+
+.resize-drag.borderdndArea .handle.nw {
+  top: -4px;
+  left: -4px;
+  cursor: nwse-resize;
+}
+
+.resize-drag.borderdndArea .handle.ne {
+  top: -4px;
+  right: -4px;
+  cursor: nesw-resize;
+}
+
+.resize-drag.borderdndArea .handle.sw {
+  bottom: -4px;
+  left: -4px;
+  cursor: nesw-resize;
+}
+
+.resize-drag.borderdndArea .handle.se {
+  bottom: -4px;
+  right: -4px;
+  cursor: nwse-resize;
+}
+
+.resize-drag.borderdndArea .handle.n {
+  top: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: ns-resize;
+}
+
+.resize-drag.borderdndArea .handle.s {
+  bottom: -4px;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: ns-resize;
+}
+
+.resize-drag.borderdndArea .handle.w {
+  top: 50%;
+  left: -4px;
+  transform: translateY(-50%);
+  cursor: ew-resize;
+}
+
+.resize-drag.borderdndArea .handle.e {
+  top: 50%;
+  right: -4px;
+  transform: translateY(-50%);
+  cursor: ew-resize;
+}
+
+.resize-drag.borderdndArea .rotate-handle {
+  position: absolute;
+  top: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+  background-color: green;
+  width: 10px;
+  height: 10px;
+  cursor: pointer;
+}
+
+.tooltipDND {
+  position: relative;
+  display: inline-block;
+}
+
+.tooltipDND .tooltipDNDtext {
+  visibility: hidden;
+  width: auto;
+  background-color: rgba(0, 0, 0, 0.459);
+  color: #ffffff;
+  text-align: center;
+  border-radius: 5px;
+  position: absolute;
+  z-index: 1;
+  bottom: 130%;
+  left: 50%;
+  margin-left: -60px;
+  opacity: 0;
+  transition: opacity 0.3s;
+}
+
+.tooltipDND:hover .tooltipDNDtext {
+  visibility: visible;
+  opacity: 1;
+}
+

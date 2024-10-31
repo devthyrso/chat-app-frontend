@@ -1,0 +1,37 @@
+.user-avatar{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 45px;
+    height: 45px;
+    border: solid 0.7mm;
+    border-color: steelblue;
+    border-radius: 50%;
+    box-shadow: inset 0em 0em 7mm #5c5c5cd4;
+}
+
+.user-avatar:hover {
+    transition-duration: 500ms;
+    border: none ;
+    border-radius: 50%;
+    box-shadow: inset 0em 0em 7mm #c8c8c8d4;
+}
+
+.initials {
+    font-size: 26px;
+    font-family: 'Gill Sans', Calibri;
+    overflow: hidden;
+}
+
+.btnUserAvatarWithInitials {
+    display: contents;
+}
+
+.teste {
+    background-color: white;
+    border: none;
+    width: 100%;
+    padding: 0;
+    height: 53px;
+}
+

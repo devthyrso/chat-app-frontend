@@ -1,0 +1,13 @@
+.loader_container {
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.spinner_Loader {
+  width: 7rem;
+  height: 7rem;
+  color: var(--bg-colorText);
+}

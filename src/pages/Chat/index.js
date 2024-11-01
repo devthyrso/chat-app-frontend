@@ -27,7 +27,7 @@ const Chat = () => {
         });
 
         socket.current.on('newMessage', (messageData) => {
-            if (messageData.friend_id === selectedFriend?.id) {
+            if (messageData.friend_id == selectedFriend?.id) {
                 setMessages((prevMessages) => [...prevMessages, messageData.message]);
             }
         });

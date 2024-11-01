@@ -6,6 +6,9 @@ import Form from 'react-bootstrap/Form';
 import './Chat.css';
 import NavBar from '../../components/Navbar/navbar';
 import Cookies from 'js-cookie';
+import { BsChatLeftText } from "react-icons/bs";
+import { FiUsers } from "react-icons/fi";
+import { FaUserCircle } from "react-icons/fa";
 
 const Chat = () => {
     const loged_user = Cookies.get('userId');
@@ -94,72 +97,73 @@ const Chat = () => {
     return (
         <>
             <NavBar />
-            <div className="chat-app">
-                <div className="users-list">
-                    <h3>Usuários</h3>
-                    {users.map((user) => (
-                        <div
-                            key={user.id}
-                            onClick={() => setSelectedFriend(user)}
-                            className={`user-item ${selectedFriend?.id === user.id ? 'selected' : ''}`}
-                        >
-                            {user.name}
-                        </div>
-                    ))}
+
+            <div id='divContainer' className='container'>
+
+                <div className='headerContainer'>
+                    <div className='divheaderTittleMobile'>
+                        <div id='divHeaderTittle'><BsChatLeftText className='fs-3 ms-2' /><h3 id='tittleH2'> Conversas</h3></div>
+                    </div>
                 </div>
 
-                {selectedFriend && (
-                    <div className="chat-container">
-                        <h2>Conversa com {selectedFriend.name}</h2>
-
-                        <div className="chat-popup-body p-3 border-bottom" style={{ overflowY: 'auto', maxHeight: '400px' }}>
-                            <ul className="list-inline p-0 mb-0 chat">
-                                {messages?.map((msg, index) => {
-                                    if (msg.sender_id == loged_user) {
-                                        return (
-                                            <li className="mt-3 message-box" key={index}>
-                                                <div className="text-end">
-                                                    <div className="d-inline-block py-2 px-3 bg-primary-subtle chat-popup-message message-right font-size-12 fw-medium" style={{ marginRight: '5px' }}>
-                                                        {msg.message}
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        );
-                                    } else {
-                                        return (
-                                            <li className="mt-2" key={`message_${msg.id}`}>
-                                                <div className="text-start">
-                                                    <div className="d-inline-block py-2 px-3 bg-gray-subtle chat-popup-message font-size-12 fw-medium">
-                                                        {msg.message}
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        );
-                                    }
-                                })}
-                                <div ref={messagesEndRef} />
-                            </ul>
-                        </div>
-
-                        <Form className="message-input-container">
-                            <Form.Control
-                                type="text"
-                                placeholder="Digite sua mensagem..."
-                                value={newMessage}
-                                onChange={(e) => setNewMessage(e.target.value)}
-                                onKeyDown={(e) => {
-                                    if (e.key === 'Enter') {
-                                        e.preventDefault();
-                                        sendMessage();
-                                    }
-                                }}
-                            />
-                            <Button variant="primary" onClick={sendMessage}>
-                                Enviar
-                            </Button>
-                        </Form>
+                <div className="chat-app container mt-2">
+                    <div className="users-list shadowCustom">
+                        <h4 className='ms-2 d-flex align-items-center gap-1'><FiUsers /><span>Usuários</span></h4>
+                        {users.map((user) => (
+                            <div
+                                key={user.id}
+                                onClick={() => setSelectedFriend(user)}
+                                className={`user-item border shadowCustom rounded-1 m-1 p-2 ${selectedFriend?.id === user.id ? 'selected' : 'noSelected'}`}
+                            >
+                                <div className='d-flex align-items-center gap-1'><FaUserCircle className='text-primary' />{user.name}</div>
+                            </div>
+                        ))}
                     </div>
-                )}
+
+                    {selectedFriend && (
+                        <div className="chat-container border border-1 rounded-2 p-1 shadowCustom">
+                            <h5 className='ps-2 pt-2 pb-2 border-bottom'>Conversa com {selectedFriend.name}</h5>
+
+                            <div className="chat-popup-body p-2" style={{ overflowY: 'auto', maxHeight: '400px', position: 'relative' }}>
+                                <ul className="list-inline p-0 mb-0 chat">
+                                    {messages?.map((msg, index) => (
+                                        <li className="mt-3 message-box" key={index}>
+                                            <div className={`text-${msg.sender_id == loged_user ? 'end' : 'start'}`}>
+                                                <div
+                                                    className={`d-inline-block rounded rounded-2 py-2 px-2 ${msg.sender_id == loged_user ? 'bg-primary-subtle text-black' : 'bg-body-secondary text-black'} chat-popup-message font-size-12 fw-medium`}
+                                                    style={msg.sender_id == loged_user ? { marginRight: '5px' } : {}}
+                                                >
+                                                    {msg.message}
+                                                </div>
+                                            </div>
+                                        </li>
+                                    ))}
+                                    <div ref={messagesEndRef} />
+                                </ul>
+                            </div>
+
+
+                            <Form className="message-input-container border-top pt-2">
+                                <Form.Control
+                                    className='ms-2 mb-2 me-2 shadowCustom'
+                                    type="text"
+                                    placeholder="Digite sua mensagem..."
+                                    value={newMessage}
+                                    onChange={(e) => setNewMessage(e.target.value)}
+                                    onKeyDown={(e) => {
+                                        if (e.key === 'Enter') {
+                                            e.preventDefault();
+                                            sendMessage();
+                                        }
+                                    }}
+                                />
+                                <Button className='ms-2 mb-2 me-2 shadowCustom' variant="primary" onClick={sendMessage}>
+                                    Enviar
+                                </Button>
+                            </Form>
+                        </div>
+                    )}
+                </div>
             </div>
         </>
     );

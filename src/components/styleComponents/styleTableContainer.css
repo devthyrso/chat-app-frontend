@@ -103,7 +103,7 @@
 .listGroupItemGrade:hover {
   scale: 1.01;
   transition: all 300ms ease-in-out;
-  background-color: rgb(225, 225, 225);
+  background-color: rgb(221, 61, 61);
 }
 
 .tdCustomThumbShow {

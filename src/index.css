@@ -1,5 +1,35 @@
 @import '~bootstrap/dist/css/bootstrap.min.css';
 
+:root {
+  --bgroot-color: #ffffff;
+  --bg-colorLineStriped: #ecedee86;
+  --bg-colorTableHover: #00000013;
+  --bg-TextColorHover: #000000;
+  --bg-BoderColorTable: #dee2e6;
+  --bg-TableDanger-DarkMode: #ffc2c29a;;
+  --offCanvas-Header: #191d25;
+  --div-TextNavBar: #374151;
+  --div-TextNavBarHover: #191d25;
+  --text-DropdownPerfil: #374151;
+  --transition: all 0.3s ease-in-out;
+}
+
+[data-theme="dark"] {
+  --bgroot-color: #212529;
+  --bg-tableBackGround: #212529;
+  --bg-colorText: #ffffff;
+  --bg-colorLineStriped: #2c3034;
+  --bg-colorTableHover: #323539;
+  --bg-TextColorHover: #ffffff;
+  --bg-BoderColorTable: #4b4b4b;
+  --bg-TableDanger-DarkMode: #992828;
+  --offCanvas-Header: #ffffff;
+  --div-TextNavBar: #ffffff;
+  --div-TextNavBarHover: #c5cee0;
+  --text-DropdownPerfil: #ffffff;
+    transition: all 0.3s ease-in-out;
+}
+
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',

@@ -43,11 +43,11 @@ const Index = () => {
             const response = await api.get('/api/users');
 
             setUsers(response.data.users);
-            setLoading(false); 
+            setLoading(false);
         } catch (error) {
             console.error('Erro');
             toast.error('Erro ao carregar dados.', { autoClose: 3000 });
-            setLoading(false); 
+            setLoading(false);
         }
     };
 
@@ -81,7 +81,7 @@ const Index = () => {
                     </div>
                 </Modal.Header>
                 <Modal.Body id='modalBody'>
-                    <h4>Exclusão de Usuário.</h4>
+                    <h4>Exclusão de usuário.</h4>
                     <p>
                         Você tem certeza de que deseja remover este usuário<span className='d-flex justify-content-center mb-0'>{props.username} ?</span>
                     </p>
@@ -152,7 +152,7 @@ const Index = () => {
 
     const openChat = (userId) => {
         history(`/chat/${userId}`)
-      }
+    }
 
     return (
         <>
@@ -201,21 +201,21 @@ const Index = () => {
 
                         <div className='container overflow-auto mt-2'>
                             <Table id='tableList' striped bordered hover>
-                                <thead>
+                                <thead className='border border-1'>
                                     <tr id='trList'>
-                                        <th className='th-text-center'>#ID</th>
-                                        <th className='th-text-center'>Nome</th>
-                                        <th className='th-text-center'>Email</th>
-                                        <th id='thAction'>Ações</th>
+                                        <th className='th-text-center textColors'>#ID</th>
+                                        <th className='th-text-center textColors'>Nome</th>
+                                        <th className='th-text-center textColors'>Email</th>
+                                        <th id='thAction' className=' textColors'>Ações</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     {filteredUsers.map((user, index) => (
-                                        <tr key={user.id} className={user.active ? '' : 'table-danger'}>
-                                            <td className='td-text-center fontCustom'>{user.id}</td>
+                                        <tr key={user.id} className={`${user.active ? '' : ''} border border-1`}>
+                                            <td className='td-text-center textColors'>{user.id}</td>
                                             <td className='td-text-center fontCustom'>{user.name}</td>
-                                            <td className='td-text-center fontCustom'>{user.email}</td>
-                                            <td id='tdButtonAction'>
+                                            <td className='td-text-center textColors'>{user.email}</td>
+                                            <td className='text-center'>
                                                 <Button className='editButton btnTableMoBile me-2' onClick={() => showEditUserPage(user.id)}><BsPencilSquare /> Editar</Button>
                                                 <Button className='deleteButton btnTableMoBile' onClick={() => showDeleteUserConfirmationModal(user.id, user.name)}><FaTrash /> Excluir</Button>
                                             </td>

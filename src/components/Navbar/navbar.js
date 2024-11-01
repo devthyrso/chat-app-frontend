@@ -20,11 +20,12 @@ export default function Sidebar() {
         e.preventDefault()
 
         try {
-            api.post('/api/logout')
+            api.post('/api/auth/logout')
                 .then(response => {
                     console.log(response.data)
                     Cookies.remove('token')
                     Cookies.remove('userId')
+                    Cookies.remove('userName')
 
                     history('/login')
                 })
